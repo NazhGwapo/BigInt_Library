@@ -12,6 +12,8 @@ typedef struct
 
 BigInt* createBigInt(char* Number);
 
+char* AddBigInt(BigInt *a, BigInt *b);
+
 
 
 

@@ -21,3 +21,8 @@ BigInt* createBigInt(char* Number)
     }
     return BigIntObj;
 }
+
+char* AddBigInt(BigInt *a, BigInt *b)
+{
+    
+}
