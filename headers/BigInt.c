@@ -2,27 +2,52 @@
 #include <string.h>
 #include <stdarg.h>
 #include "BigInt.h"
+#include <stdio.h>
 
-BigInt* createBigInt(char* Number)
+#define MAX(a,b) a->noDigits >= b->noDigits ? a->noDigits : b->noDigits
+
+BigInt* AllocateBigInt()
 {
-    int len = strlen(Number);
     BigInt *BigIntObj = malloc(sizeof(BigInt));
-    BigIntObj->noDigits = len;
-    BigIntObj->Size = len;
-    BigIntObj->Number = Number;
-    if(BigIntObj->Number[0] == '-')
+    if(BigIntObj == NULL)
     {
-        BigIntObj->sign = -1;
-        BigIntObj->noDigits--;
+        printf("Allocation Failed");
     }
-    else
-    {
-        BigIntObj->sign = 1;
-    }
+    BigIntObj->noDigits;
+    BigIntObj->Size;
+    BigIntObj->Number;
     return BigIntObj;
 }
 
-char* AddBigInt(BigInt *a, BigInt *b)
+BigInt* createBigInt(char* Number)
 {
+    BigInt* allocated = AllocateBigInt();
+    allocated->noDigits = strlen(Number);
+    allocated->Size = strlen(Number);
+    allocated->Number = Number;
+    if(allocated->Number[0] == '-')
+    {
+    allocated->sign = -1;
+    allocated->noDigits--;
+    }
+    else if(allocated->Number[0] > '0' && allocated->Number[0] <= '9')
+    {
+    allocated->sign = 1;
+    }
+    else
+    {
+        printf("Incorrect input of number\n");
+        return NULL;
+    }
+    return allocated;
+
+}
+BigInt* AddBigInt(BigInt *a, BigInt *b)
+{
+    int numDig = MAX(a,b) + 1;
+    char buffer[2];
     
+    
+    
+ return NULL;   
 }

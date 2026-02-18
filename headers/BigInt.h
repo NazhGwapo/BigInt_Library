@@ -8,11 +8,13 @@ typedef struct
     int Size;
     char* Number;
 
-} BigInt;
+}BigInt;
+
+BigInt* AllocateBigInt();
 
 BigInt* createBigInt(char* Number);
 
-char* AddBigInt(BigInt *a, BigInt *b);
+BigInt* AddBigInt(BigInt *a, BigInt *b);
 
 
 

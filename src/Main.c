@@ -12,11 +12,15 @@ FOR RSA ENCRYPTION PURPOSES
 
 int main()
 {
-BigInt *obj1 = createBigInt("-123456");
+BigInt *obj1 = createBigInt("123");
+BigInt *obj2 = createBigInt("125");
+
 printf("%s\n",obj1->Number);
 printf("%i\n",obj1->noDigits);    
 printf("%i\n",obj1->Size);
 printf("%i\n",obj1->sign);    
+
+AddBigInt(obj1,obj2);
 
 
 }
