@@ -93,7 +93,7 @@ int front = 0;
         }
     }
     result->Size = result->noDigits;
-    result->sign = 0;
+    result->sign = 1;
     free(ptr);
     return result;
 }
