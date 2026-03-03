@@ -13,9 +13,8 @@ BigInt* AllocateBigInt()
     {
         printf("Allocation Failed");
     }
-    BigIntObj->noDigits;
-    BigIntObj->Size;
-    BigIntObj->Number;
+    BigIntObj->noDigits = 0;
+    BigIntObj->Size = 0;
     return BigIntObj;
 }
 
@@ -42,12 +41,40 @@ BigInt* createBigInt(char* Number)
     return allocated;
 
 }
-BigInt* AddBigInt(BigInt *a, BigInt *b)
+
+BigInt* MultiplyBigInt(BigInt *a,BigInt *b)
 {
-    int numDig = MAX(a,b) + 1;
-    char buffer[2];
-    
-    
-    
- return NULL;   
+    BigInt* result = createBigInt("");
+    printf("%i",result->noDigits);
+    result->noDigits = a->noDigits + b->noDigits;
+    printf("HI");
+    if(a->Number[0] == '0' || b->Number[0] == '0')
+    {
+        printf("MULTIPLICATION INVALID");
+        return NULL;
+    }
+    int multiplied = 1;
+    int carry = 0;
+    int aSize = a->noDigits-1;
+    int bSize = b->noDigits-1;
+    int resultSize = result->Size - 1;
+    for(int i = 0; i < b->noDigits;i++)
+    {
+        for(int j = 0; j< a->noDigits;j++)
+        {
+            multiplied = (b->Number[bSize]- '0') * (a->Number[aSize] - '0');
+            printf("%i\n",multiplied);
+            carry = (multiplied/ 10);
+            result->Number[resultSize] = (multiplied% 10) + '0';
+            resultSize--;
+            aSize--;
+            
+        }
+        aSize = a->noDigits-1; 
+        bSize--;
+
+    }
+
+
+return NULL;
 }
