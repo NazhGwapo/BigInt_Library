@@ -12,9 +12,9 @@ FOR RSA ENCRYPTION PURPOSES
 
 int main()
 {
-BigInt *obj1 = createBigInt("25");
-BigInt *obj2 = createBigInt("2");
+BigInt *NumA = createBigInt("10000000000000000000000000000000000000");
+BigInt *NumB = createBigInt("10000000000000000000000000000000000000");
 
-
-BigInt *Mod = MultiplyBigInt(obj1,obj2);
+BigInt *Modulus  = MultiplyBigInt(NumA,NumB); // MULTIPLIED NUM
+printf("%s",Modulus->Number);
 }

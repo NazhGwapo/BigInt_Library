@@ -44,37 +44,56 @@ BigInt* createBigInt(char* Number)
 
 BigInt* MultiplyBigInt(BigInt *a,BigInt *b)
 {
-    BigInt* result = createBigInt("");
-    printf("%i",result->noDigits);
+    BigInt* result = createBigInt("1");
     result->noDigits = a->noDigits + b->noDigits;
-    printf("HI");
+    result->Number = calloc(sizeof(char), result->noDigits);
     if(a->Number[0] == '0' || b->Number[0] == '0')
     {
         printf("MULTIPLICATION INVALID");
         return NULL;
     }
+    int* ptr= calloc(result->noDigits,sizeof(int));
     int multiplied = 1;
     int carry = 0;
     int aSize = a->noDigits-1;
     int bSize = b->noDigits-1;
-    int resultSize = result->Size - 1;
-    for(int i = 0; i < b->noDigits;i++)
-    {
-        for(int j = 0; j< a->noDigits;j++)
-        {
-            multiplied = (b->Number[bSize]- '0') * (a->Number[aSize] - '0');
-            printf("%i\n",multiplied);
-            carry = (multiplied/ 10);
-            result->Number[resultSize] = (multiplied% 10) + '0';
-            resultSize--;
-            aSize--;
-            
-        }
-        aSize = a->noDigits-1; 
-        bSize--;
+    int resultSize = result->noDigits - 1;
+for (int i = bSize; i >= 0; i--)
+{
+    carry = 0;
 
+    for (int j = aSize; j >= 0; j--)
+    {
+        int index = i + j + 1;
+
+        int product =(a->Number[j] - '0') * (b->Number[i] - '0') + ptr[index] + carry;
+
+        ptr[index] = product % 10;
+        carry = product / 10;
     }
 
+    ptr[i] += carry;
 
-return NULL;
+}
+int front = 0;
+    for(int i = 0; i < result->noDigits;i++)
+    {
+        if(ptr[0] == 0 &&!front)
+        {
+            front = 1;
+            continue;
+        }
+        if(!front)
+        {
+            result->Number[i] = ptr[i] + '0';
+        }
+        else
+        {
+            result->Number[i-1] = ptr[i] + '0';
+        }
+    }
+    result->Size = result->noDigits;
+    result->sign = 0;
+    free(ptr);
+    return result;
 }
