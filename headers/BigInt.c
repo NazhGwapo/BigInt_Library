@@ -53,11 +53,9 @@ BigInt* MultiplyBigInt(BigInt *a,BigInt *b)
         return NULL;
     }
     int* ptr= calloc(result->noDigits,sizeof(int));
-    int multiplied = 1;
     int carry = 0;
     int aSize = a->noDigits-1;
     int bSize = b->noDigits-1;
-    int resultSize = result->noDigits - 1;
 for (int i = bSize; i >= 0; i--)
 {
     carry = 0;
@@ -66,10 +64,11 @@ for (int i = bSize; i >= 0; i--)
     {
         int index = i + j + 1;
 
-        int product =(a->Number[j] - '0') * (b->Number[i] - '0') + ptr[index] + carry;
+        int multiplied =(a->Number[j] - '0') * (b->Number[i] - '0') + ptr[index] + carry; 
+        // turns an ascii num from 0 to 9 to an integer
 
-        ptr[index] = product % 10;
-        carry = product / 10;
+        ptr[index] = multiplied % 10;
+        carry = multiplied/ 10;
     }
 
     ptr[i] += carry;
