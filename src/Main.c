@@ -10,6 +10,9 @@ AND TO BE ABLE TO DO BASIC OPERATIONS
 FOR RSA ENCRYPTION PURPOSES 
 */
 
+//To COMPILE THE PROJECT USE mingw32-make -f Makefile.mak
+//and use ./Main
+
 int main()
 {
 BigInt *NumA = createBigInt("10000000000000000000000000000000000000");
