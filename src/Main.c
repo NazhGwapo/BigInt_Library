@@ -18,10 +18,10 @@ int main()
 BigInt *NumA = createBigInt("67676767676767676767676767676767676767");
 BigInt *NumB = createBigInt("696969696969696969696969696969696969");
 
-// BigInt *Added = AddedBigInt(NumA,NumB);
+BigInt *Added = AddedBigInt(NumA,NumB);
 BigInt *Modulus  = MultiplyBigInt(NumA,NumB); // MULTIPLIED NUM
 printf("MULTIPLIED NUM: %s\n",Modulus->Number);
-// printf("ADDED NUM: %s\n",Added->Number);
+printf("ADDED NUM: %s\n",Added->Number);
 
 free(NumA);
 free(NumB);

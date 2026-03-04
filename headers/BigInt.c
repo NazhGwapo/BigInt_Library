@@ -107,6 +107,7 @@ BigInt* AddedBigInt(BigInt* a,BigInt*b)
             result->Number[i-1] = ptr[i] + '0';
         }
     }
+    realloc(result->Number,result->noDigits-1);
 
     free(ptr);
     return result;
@@ -158,8 +159,10 @@ int front = 0;
             result->Number[i-1] = ptr[i] + '0';
         }
     }
+
     result->Size = result->noDigits;
     result->sign = 1;
+    realloc(result->Number,result->noDigits-1);
     free(ptr);
     return result;
 }
