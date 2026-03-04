@@ -15,17 +15,17 @@ FOR RSA ENCRYPTION PURPOSES
 
 int main()
 {
-BigInt *NumA = createBigInt("1625612361265612364623612205");
-BigInt *NumB = createBigInt("1");
+BigInt *NumA = createBigInt("67676767676767676767676767676767676767");
+BigInt *NumB = createBigInt("696969696969696969696969696969696969");
 
-BigInt *Added = AddedBigInt(NumA,NumB);
+// BigInt *Added = AddedBigInt(NumA,NumB);
 BigInt *Modulus  = MultiplyBigInt(NumA,NumB); // MULTIPLIED NUM
-printf("%s\n",Modulus->Number);
-// printf("%s\n",Added->Number);
+printf("MULTIPLIED NUM: %s\n",Modulus->Number);
+// printf("ADDED NUM: %s\n",Added->Number);
 
 free(NumA);
 free(NumB);
-free(Added);
+// free(Added);
 free(Modulus);
 
 
