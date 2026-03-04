@@ -10,7 +10,7 @@ AND TO BE ABLE TO DO BASIC OPERATIONS
 FOR RSA ENCRYPTION PURPOSES 
 */
 
-//To COMPILE THE PROJECT USE mingw32-make -f Makefile.mak
+//To COMPILE THE PROJECT USE mingw32-make -f Makefile.mak or any build tools out there idk
 //and use ./Main
 
 int main()
