@@ -14,6 +14,8 @@ BigInt* AllocateBigInt();
 
 BigInt* createBigInt(char* Number);
 
+BigInt* AddedBigInt(BigInt *a, BigInt *b);
+    
 BigInt* MultiplyBigInt(BigInt *a, BigInt *b);
 
 

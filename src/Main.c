@@ -15,9 +15,18 @@ FOR RSA ENCRYPTION PURPOSES
 
 int main()
 {
-    BigInt *NumA = createBigInt("69000000000000000000000000000000000000000000000000000000000000000000000000000");
-    BigInt *NumB = createBigInt("67000000000000000000000000000000000000000000000000000000000000000000000000000");
-    
+BigInt *NumA = createBigInt("1625612361265612364623612205");
+BigInt *NumB = createBigInt("1");
+
+BigInt *Added = AddedBigInt(NumA,NumB);
 BigInt *Modulus  = MultiplyBigInt(NumA,NumB); // MULTIPLIED NUM
-printf("%s",Modulus->Number);
+printf("%s\n",Modulus->Number);
+// printf("%s\n",Added->Number);
+
+free(NumA);
+free(NumB);
+free(Added);
+free(Modulus);
+
+
 }
